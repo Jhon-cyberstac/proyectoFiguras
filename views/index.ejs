@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head><link rel="stylesheet" href="/style.css">
+
+  <meta charset="UTF-8">
+  <title>Calculadora de Figuras</title>
+</head>
+<body>
+  <h1>Área y Perímetro de Figuras</h1>
+  <h2>Figuras disponibles</h2>
+<div>
+  <h3>Trapecio</h3>
+  <img src="/images/trapecio.png" alt="Trapecio" class="figura">
+
+  <h3>Rombo</h3>
+  <img src="/images/rombo.png" alt="Rombo" class="figura">
+
+  <h3>Pentágono</h3>
+  <img src="/images/pentagono.png" alt="Pentágono" class="figura">
+</div>
+  <form action="/calcular" method="POST">
+    <label>Figura:</label>
+    <select name="figura">
+      <option value="trapecio">Trapecio</option>
+      <option value="rombo">Rombo</option>
+      <option value="pentagono">Pentágono</option>
+    </select>
+
+    <p>Base: <input type="number" name="base" step="any" /></p>
+    <p>Lado: <input type="number" name="lado" step="any" /></p>
+    <p>Altura: <input type="number" name="altura" step="any" /></p>
+    <p>Diagonal 1: <input type="number" name="diagonal1" step="any" /></p>
+    <p>Diagonal 2: <input type="number" name="diagonal2" step="any" /></p>
+    <p>Apotema: <input type="number" name="apotema" step="any" /></p>
+
+    <button type="submit">Calcular</button>
+  </form>
+
+  <% if (resultado) { %>
+    <h2>Resultado:</h2>
+    <% if (resultado.error) { %>
+      <p><%= resultado.error %></p>
+    <% } else { %>
+      <p>Área: <%= resultado.area.toFixed(2) %></p>
+      <p>Perímetro: <%= resultado.perimetro.toFixed(2) %></p>
+    <% } %>
+  <% } %>
+</body>
+</html>

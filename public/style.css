@@ -1,0 +1,7 @@
+img.figura {
+  width: 200px;
+  height: auto;
+  margin: 10px;
+  border: 5px solid #f51111;
+  border-radius: 8px;
+}
